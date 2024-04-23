@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 
 import br.com.neurotech.challenge.entity.NeurotechClient;
 
+import java.util.List;
+
 @Service
 public interface ClientService {
 	
@@ -13,11 +15,12 @@ public interface ClientService {
 	 * 
 	 * @return ID do cliente recém-salvo
 	 */
-	String save(NeuroTechClientDTO data);
+	NeurotechClient save(NeuroTechClientDTO data);
 	
 	/**
 	 * Recupera um cliente baseado no seu ID
 	 */
 	NeurotechClient get(Long id) throws Exception;
+	List<NeurotechClient> getAllClients();
 
 }
