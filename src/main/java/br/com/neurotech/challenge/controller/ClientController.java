@@ -1,4 +1,4 @@
-package br.com.neurotech.challenge;
+package br.com.neurotech.challenge.controller;
 
 import br.com.neurotech.challenge.DTOS.NeuroTechClientDTO;
 import br.com.neurotech.challenge.entity.NeurotechClient;
