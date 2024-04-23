@@ -22,5 +22,6 @@ public interface ClientService {
 	 */
 	NeurotechClient get(Long id) throws Exception;
 	List<NeurotechClient> getAllClients();
+	NeurotechClient updateClient(Long id, NeuroTechClientDTO newData) throws Exception;
 
 }

@@ -27,4 +27,14 @@ public class ClientController {
         List<NeurotechClient> allClients = this.clientService.getAllClients();
         return new ResponseEntity<>(allClients, HttpStatus.OK);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<NeurotechClient> updateClient(@PathVariable Long id, @RequestBody NeuroTechClientDTO clientDTO) throws Exception {
+        NeurotechClient updatedClient = clientService.updateClient(id, clientDTO);
+        if (updatedClient != null) {
+            return new ResponseEntity<>(updatedClient, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }

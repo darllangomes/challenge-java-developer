@@ -4,9 +4,12 @@ import br.com.neurotech.challenge.DTOS.NeuroTechClientDTO;
 import br.com.neurotech.challenge.entity.NeurotechClient;
 import br.com.neurotech.challenge.repositories.NeurotechClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
+@Service
 public class ClientServiceImpl implements ClientService{
 
     @Autowired
@@ -30,5 +33,15 @@ public class ClientServiceImpl implements ClientService{
     @Override
     public List<NeurotechClient> getAllClients() {
         return this.repository.findAll();
+    }
+
+    @Override
+    public NeurotechClient updateClient(Long id, NeuroTechClientDTO newData) throws Exception {
+        NeurotechClient client= repository.findClientById(id).orElseThrow( () -> new Exception("cliente não encontrado") );
+        client.setName(newData.name());
+        client.setAge(newData.age());
+        client.setIncome(newData.income());
+        this.saveClient(client);
+        return client;
     }
 }
