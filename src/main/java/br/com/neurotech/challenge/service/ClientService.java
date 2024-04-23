@@ -1,5 +1,6 @@
 package br.com.neurotech.challenge.service;
 
+import br.com.neurotech.challenge.DTOS.NeuroTechClientDTO;
 import org.springframework.stereotype.Service;
 
 import br.com.neurotech.challenge.entity.NeurotechClient;
@@ -12,11 +13,11 @@ public interface ClientService {
 	 * 
 	 * @return ID do cliente recém-salvo
 	 */
-	String save(NeurotechClient client);
+	String save(NeuroTechClientDTO data);
 	
 	/**
 	 * Recupera um cliente baseado no seu ID
 	 */
-	NeurotechClient get(String id);
+	NeurotechClient get(Long id) throws Exception;
 
 }
